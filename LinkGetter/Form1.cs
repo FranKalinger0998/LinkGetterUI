@@ -31,7 +31,7 @@ namespace LinkGetter
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.Title = "Select File";
-            openFileDialog1.InitialDirectory = @"C:\";//--"C:\\";
+            openFileDialog1.InitialDirectory = @"C:\";
             openFileDialog1.Filter = "All files (*.*)|*.*|Excel File (*.xlsx)|*.xlsx";
             openFileDialog1.FilterIndex = 2;
             openFileDialog1.ShowDialog();
@@ -99,16 +99,11 @@ namespace LinkGetter
             wait.Until(driver1 => driver1.FindElement(By.Name("q")));
             IWebElement slazemSe = driver.FindElement(By.Id("L2AGLb"));
             slazemSe.Click();
-            //driver.Manage().Window.Maximize();
-
-            //driver.SwitchTo().Window(driver.WindowHandles[1]);
-            //IWebElement consent = driver.FindElement(By.XPath("//*[@id=\"L2AGLb\"]/div"));
-            //consent.Click();
+            
             IWebElement searchInput = driver.FindElement(By.Name("q"));
             searchInput.SendKeys(search);
             searchInput.SendKeys(OpenQA.Selenium.Keys.Enter);
-            //IWebElement all_options = driver.FindElement(By.Name("option"));
-            //div[@id='ires']//h3/a[1]/@href
+            
             try
             {
 
