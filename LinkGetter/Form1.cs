@@ -47,21 +47,12 @@ namespace LinkGetter
         private void btnOpen_Click(object sender, EventArgs e)//btmExecute
         {
             Excel excel = new Excel(linkxxx, 1);
-            //excel.writeToCell(0, 0, "radi");
-            // excel.writeToCell(0, 1, "radi i ovaj");
-            // MessageBox.Show(excel.readCell(0, 0));
-
-
-            //string[] lista = { "banana", "papiga", "krumpir" };
-            //List<string> lista = new List<string>();
-            //string[] linksx = { };
-            //List<string> linksx = new List<string>();
-            //List<string> termsList = new List<string>();
+            
             int counter = 0;
 
             while (true)
             {
-                //MessageBox.Show(PathTextBox.Text);
+                
                
                 if (excel.readCell(counter, 0) == null)
                 {
@@ -77,35 +68,21 @@ namespace LinkGetter
                 {
                     string link = "= HYPERLINK(\"" + getLink(excel.readCell(counter, 0)) + "\")";
 
-                    //excel.writeALinkToCell(counter, 1, getLink(excel.readCell(counter, 0)));
+                    
                     excel.writeToCell(counter, 1, link);
                 }
-                catch (Exception ex)
+                catch 
                 {
                     excel.writeToCell(counter, 1, "xxxxx");
                 }
 
-                //excel.writeToCell(counter, 1, getLink(excel.readCell(counter, 0)));
-                //= HYPERLINK("https://en.wiktionary.org/wiki/naziv")
-                // "= HYPERLINK((""https://www.google.ru/?q="" & b1)"
+                
                 counter++;
                 
             }
             excel.save();
             excel.wbclose();
-            /*foreach (String item in lista)
-            {
-                
-                linksx.Add(getLink(item));
-            }
             
-            for (int i = 0; i < lista.Length; i++)
-            {
-                excel.writeToCell(i, 0, lista[i]);
-                excel.writeToCell(i, 1, linksx[i]);
-                Console.WriteLine(lista[i]);
-                Console.WriteLine(linksx[i]);
-            }*/
 
         }
 
